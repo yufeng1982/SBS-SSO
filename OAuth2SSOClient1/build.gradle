@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+}
+
+apply plugin: 'java'
+//apply plugin: 'war' build a war file
+apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    manifest {
+        attributes 'Start-Class': 'com.spring.mongodb.SpringMongoApplication'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+   
+   compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
+   
+   compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.1.5.RELEASE'
+
+   
+   //providedCompile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat' // build a war file need to add this
+   
+   //testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+version = '1.0'
